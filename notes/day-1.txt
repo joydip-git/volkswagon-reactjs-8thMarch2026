@@ -1,0 +1,26 @@
+git repository
+--------------------
+https://github.com/joydip-git/volkswagon-reactjs-8thMarch2026
+
+s/w:
+--------------
+Node JS LTS version
+VS Code
+
+
+Roadmap:
+--------------
+JavaScript
+New features
+TypeScript
+Node JS
+
+Vite, Angular CLI
+
+Client side frameworks/libraries:
+Angular, React, Next JS, Vue etc.
+
+server side frameworks/libraries:
+Node JS
+Express JS
+Nest JS
