@@ -1,26 +1,32 @@
-git repository
---------------------
-https://github.com/joydip-git/volkswagon-reactjs-8thMarch2026
+Node JS:
+---------------
+it is a server side framework which provides a JS runtime and JS engine
 
-s/w:
---------------
-Node JS LTS version
-VS Code
+package manager: Node Package Manager (NPM)
+
+other package manager: yarn, bower wtc.
+
+LTS version
+
+react-training
+	first-app
+
+HTML:
+------------
+	empty tag/self-closing tag: do not have any children: meta etc.
+
+production level web server: tomcat, iis, nginx, vercel, ec2 etc.
+dev mode web server: Live Server, lite server, web pack dev server etc.
+
+JS Engine (interpreter or compiler)
+1. chrome: V8
+2. firefox: Spidermonkey
+3. safari: Js Core (Indigo)
+4. Edge: old -> chakra, now -> chrome-kit 
+5. opera: chrome-kit engine
+	
+JavaScript:
+-------------------
 
 
-Roadmap:
---------------
-JavaScript
-New features
-TypeScript
-Node JS
 
-Vite, Angular CLI
-
-Client side frameworks/libraries:
-Angular, React, Next JS, Vue etc.
-
-server side frameworks/libraries:
-Node JS
-Express JS
-Nest JS
