@@ -1,0 +1,28 @@
+create an app:
+
+employee.js
+--------------
+employee:
+	common data and functions
+
+developer.js
+------------
+developer:
+	id, name, basic, da, hra, incentive
+	calculateSalary() -> 
+
+hr.js
+---------
+hr:
+	id, name, basic, da, hra, gratuity
+	calculateSalary() ->
+
+index.js
+-------------
+1. create some objects of both dev and hr type
+2. add them in an array
+3. iterate through the array and print the salary of every employee along with their name
+
+index.html:
+---------------------
+add all the script files in proper order
