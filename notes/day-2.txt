@@ -1,0 +1,42 @@
+JavaScript:
+-------------------
+It is loosely typed language
+It is dynamic language
+ECMA Script: guideline for all scripting languages
+ECMA 1994 - 2014 (ES 1.1 - ES 5)
+
+2009: Node JS (Ryan Dahl)
+
+ES6 [2015]: let, const, ...., class, constructor, super, extends
+
+function Object(){}
+
+JS compilation and execution:
+--------------------------------
+1. set up phase:
+	takes care of ONLY variable and function declarations
+	no assignment and method call is entertained
+2. execution phase
+
+data types:
+----------------
+string, Boolean, number, object
+
+undefined, NaN, null, infinity
+
+let (2015)
+
+local variables
+data members of class
+
+class A{
+	public int value;
+
+	public void foo(){
+		int x= 10;
+	}
+}
+
+A obj = new A();
+obj.value=10;
+obj.foo();

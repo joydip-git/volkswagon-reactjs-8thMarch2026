@@ -24,9 +24,7 @@ JS Engine (interpreter or compiler)
 3. safari: Js Core (Indigo)
 4. Edge: old -> chakra, now -> chrome-kit 
 5. opera: chrome-kit engine
-	
-JavaScript:
--------------------
+
 
 
 
