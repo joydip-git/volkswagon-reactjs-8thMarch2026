@@ -1,3 +1,21 @@
 callback mechanism in JS (functional programming)
 asynchronity in JS
 modularity in JS
+
+JS is single threaded
+But JS code can take advantage of the environment (browser or node js) where it is running, considering that environment provides multiple threads.
+
+from JS code you can "request" the environment to execute JS function(s) to be executed asynchronously (using some extra thread provided by the environment) without blocking the main (and the only) thread of JS
+
+Promise API
+
+const p = new Promise(
+	() => {
+		//code	
+	}
+)
+
+p
+.then( ()=>{})
+.catch( ()=> {})
+
