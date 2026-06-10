@@ -22,6 +22,7 @@ index.js
 1. create some objects of both dev and hr type
 2. add them in an array
 3. iterate through the array and print the salary of every employee along with their name
+4. upgrade: print the name and salary of the employees in ascending order of the name where the total salary of an employee is greater than <criteria>
 
 index.html:
 ---------------------
