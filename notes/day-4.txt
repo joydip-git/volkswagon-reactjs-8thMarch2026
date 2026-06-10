@@ -1,0 +1,35 @@
+React JS:
+---------------
+a JS library to create client-side UI based web app.
+It is used to create Single Page Application (SPA) type app
+a React UI is composed of several components
+each component is an atomic unit which contains
+	- HTML design (dynamic)
+	- data and event handlers (code)
+	- styles
+
+It offers "binding" feature to render data from code in the template (UI/Design/View) as well as vice versa
+
+CLI tool:
+	create-react-app (deprecated)
+	vite (pronounced as veet)
+	Parcel
+
+framework tools:
+	Next JS
+	Gatsby
+	React Router
+	Expo
+	TanStack
+	RedwoodSDK
+
+Vite to create React app:
+	>npm i vite --localtion=global
+	>vite ...
+
+without installing vite:
+	>npm create vite@latest
+
+React packages:
+	react
+	react-dom
