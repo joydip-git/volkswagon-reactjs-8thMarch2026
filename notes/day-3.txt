@@ -1,0 +1,3 @@
+callback mechanism in JS (functional programming)
+asynchronity in JS
+modularity in JS

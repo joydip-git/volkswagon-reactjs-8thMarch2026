@@ -8,6 +8,7 @@ ECMA 1994 - 2014 (ES 1.1 - ES 5)
 2009: Node JS (Ryan Dahl)
 
 ES6 [2015]: let, const, ...., class, constructor, super, extends
+ES7 [2016], ES 8 [2017],....
 
 function Object(){}
 
@@ -26,17 +27,47 @@ undefined, NaN, null, infinity
 
 let (2015)
 
-local variables
-data members of class
+convert ES6+ version JS code back to <ES6 version for backward compatibility
 
-class A{
-	public int value;
+tools: transpiler (transformer + compiler )
 
-	public void foo(){
-		int x= 10;
-	}
-}
+babel packages:
+	>npm i @babel/core @babel/cli -D
+	>npm install -D @babel/preset-env
+	
 
-A obj = new A();
-obj.value=10;
-obj.foo();
+running babel and transforimg entire source code in "src" folder and emit the transformed files and store them in "dist" folder:
+----------------------------------------------------------
+app-root>.\node_modules\.bin\babel src --out-dir dist
+
+package installation:
+----------------------------
+1. global
+	command: >npm install <package-name>@<version-name> --location=global
+	global path: C:\Users\<user-name>\AppData\Roaming\npm\node_modules
+2. locally (for an app)
+	command: >npm install <package-name>@<version-name> [-D]
+	path: app-root-path\node_modules
+
+package manager: npm
+
+manage list of dependencies for your app:
+------------------------------------------
+create a file at the root of your app: package.json
+this file 
+	- contains the list of dependency packages
+	- version
+	- name
+	- author
+	- license
+	- version manager
+	etc.
+
+create
+	1. manually
+	2. using npm tool
+		command: >npm init [--yes]
+
+vite => React JS
+create-react-app
+
