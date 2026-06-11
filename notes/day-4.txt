@@ -100,3 +100,10 @@ JSX elements => Pseudo HTML element
 
 JSX -> Non-JSX -> Transpilation => React Element -> (Root.render()) -> HTML element
 
+Nested component:
+Counter component is "nested" inside App component
+
+passing data from a parent component to a nested component:
+---------------------------------------------------------------------
+through an object -> Property object (props object)
+
