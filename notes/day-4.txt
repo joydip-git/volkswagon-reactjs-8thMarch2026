@@ -62,4 +62,41 @@ b. importing members: import { add:add } from './utility'
 
 etc.
 
+React JS components:
+-------------------------
+DetailedReactHTMLElement => createElement() method from react package creates a React element
+
+{
+	type: 'h2',
+	props:{
+	},
+	children: []
+}
+
+HTML element => h2
+
+Root => created by createRoot method from 'react-dom/client'
+createRoot lets you create a root to display React components inside a browser DOM node.
+
+algo to find the difference in data in a component => diff (diffing)
+
+mounting:
+ the very first time the whole VDOM converted to HTML DOM and appended in the xisting DOM tree for the HTML file
+
+unmounting: 
+taking off any html (react element) from the DOM
+
+updating: 
+due to change in data in a component React JS creates a new VDOM version and compares the same with the previous version to find out which component data has been updated, in order to update the corresponding HTML element in the actual HTML DOM displayed in the browser
+
+
+var data = ""
+
+data = ""
+
+JSX => JavaScript and XML
+
+JSX elements => Pseudo HTML element
+
+JSX -> Non-JSX -> Transpilation => React Element -> (Root.render()) -> HTML element
 

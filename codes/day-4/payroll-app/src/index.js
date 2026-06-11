@@ -1,6 +1,8 @@
 import { Developer } from "./models/developer";
 import { Hr } from "./models/hr";
-import employees, { add, remove } from "./data/employees";
+// import employees from './data/employees'
+// import empArr from './data/employees'
+import empArr, { add, remove } from "./data/employees";
 
 const anilDev = new Developer(1, "Anil", 1000, 2000, 3000, 4000)
 const sunilHr = new Hr(2, "Sunil", 1500, 2500, 3500, 4500)
@@ -12,8 +14,8 @@ add(sunilHr)
 add(joyDev)
 add(maheshHr)
 
-for (let index = 0; index < employees.length; index++) {
-    const e = employees[index]
+for (let index = 0; index < empArr.length; index++) {
+    const e = empArr[index]
     e.calculateSalary()
     //console.log(`Total salary of ${e.name} is ${e.total}`);
 }
@@ -31,7 +33,7 @@ for (let index = 0; index < employees.length; index++) {
 //     .sort((e1, e2) => e1.name.localeCompare(e2.name))
 //     .forEach(printLogic)
 
-employees
+empArr
     .filter((e) => e.total > 10000)
     .sort((e1, e2) => e1.name.localeCompare(e2.name))
     .forEach((e) => console.log(`Total salary of ${e.name} is ${e.total}`))
