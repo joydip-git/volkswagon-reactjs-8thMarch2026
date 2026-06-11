@@ -33,3 +33,33 @@ without installing vite:
 React packages:
 	react
 	react-dom
+
+
+modules in JS:
+------------------
+multiple script tag
+
+creating modules in different way: module format
+
+1. Common JS format: (default module format for Node JS app)
+a. exporting members: module.exports= { prop1:member1, prop2:member2,..}
+b. importing members: const moduleexports = require('module-path')
+
+2. Asynchronous module definition format (AMD)
+
+require('',[],function(){
+	
+})
+
+3. Universal module definition format (UMD)
+
+4. System JS
+
+5. ES6 module format (ESM)
+a. exporting members: export function add(a,b){}
+b. importing members: import { add:add } from './utility'
+ 
+
+etc.
+
+
