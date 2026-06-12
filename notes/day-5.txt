@@ -38,3 +38,21 @@ type HeaderPropsType={
 const Header = (props:HeaderPropsType)=>{
 	return (<h2>{props.messageValue}</h2>)
 }
+
+create react app using vite:
+------------------------------
+>npm create vite@latest
+	- enter proj name
+	- enter tech [react/preact/...]
+	- enter flavor [Ts/Js/..]
+	- decide to install packages immediately [yes/no]
+	- ...
+
+running React app using vite:
+-----------------------------------
+app-dir>npm i
+app-dir>npm run dev [means: npx vite --port=5173]
+
+or
+
+app-dir>npx vite --port=4000
