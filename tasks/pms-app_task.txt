@@ -20,4 +20,13 @@ create a React application for prodict management system
 	c. component (ProductList): src/components/product-list/ProductList.tsx + ProductList.css
 	d. component (App): src/components/app/App.tsx + App.css
 
+
+	- convert the <tr> design into a small component: ProductRow
+	  Note: since each ProductRow component displays exactly one Product data through <tr> element, hemce from the parent component (ProductList) pass the single product object to the nested component (ProdctRow) via a property (product), in the map() method callback
+	      
+folder structure:
+	a. component (ProductRow): src/components/product-row/ProductRow.tsx + ProductRow.css
+	b. nest the component in ProductList map() method callback code
+	(p) => { return <ProductRow product={p} />
+
 	
