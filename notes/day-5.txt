@@ -19,3 +19,22 @@ create tsconfig.json file:
 >.\node_modules\.bin\tsc --init
 
 "use strict"
+
+Reat with TypeScript:
+----------------------------
+StrictMode: 
+a built-in component. 
+used during development time and wraps the whole react app (root component App)
+Lets you find common bugs in your components early during development.
+
+<Header messageValue={message} />
+
+Header({messageValue:message})
+
+type HeaderPropsType={
+	messageValue:string
+}
+
+const Header = (props:HeaderPropsType)=>{
+	return (<h2>{props.messageValue}</h2>)
+}

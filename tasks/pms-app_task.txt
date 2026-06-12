@@ -1,0 +1,23 @@
+create a React application for prodict management system
+
+	- create a component which displays each product detail thorugh a <table> element, where in each row display
+		- first col: image
+		- second col: name
+		- third col: price
+		- fourth col: rating value
+
+	sub-task:
+	a. create a data type (using either type or interface) for product 
+	b. create an array which can store only product type objects
+	c. use the sample JSON product array data
+	d. access the array from component
+	e. display the way mentioned above in a component: ProductList
+	f. nest the ProductList in App component
+
+	folder structure:
+	a. product type: src/models/product.ts
+	b. array of products with samle data: src/data/productrecords.ts
+	c. component (ProductList): src/components/product-list/ProductList.tsx + ProductList.css
+	d. component (App): src/components/app/App.tsx + App.css
+
+	
