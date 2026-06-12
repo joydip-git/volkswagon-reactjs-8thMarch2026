@@ -1,23 +1,10 @@
+import { type JSX } from "react"
 import { productRecords } from "../../../data/productrecords"
+import ProductRow from "../product-row/ProductRow"
 
 const ProductList = () => {
 
-    // const productRows = productRecords.map(
-    //     (p) => {
-    //         return (
-    //             <tr>
-    //                 <td>
-    //                     <img src={p.imageUrl} alt="NA" style={{ margin: '2px', width: '80px' }} />
-    //                 </td>
-    //                 <td>{p.productName}</td>
-    //                 <td>{p.price}</td>
-    //                 <td>{p.starRating}</td>
-    //             </tr>
-    //         )
-    //     }
-    // )
-
-    const productRows = productRecords.map(
+    const productRows: JSX.Element[] = productRecords.map(
         (p) => {
             return <ProductRow product={p} />
         }
@@ -33,6 +20,7 @@ const ProductList = () => {
                         <th>Name</th>
                         <th>Price</th>
                         <th>Rating</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>

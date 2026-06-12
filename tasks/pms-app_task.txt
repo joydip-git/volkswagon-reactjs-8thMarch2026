@@ -29,4 +29,3 @@ folder structure:
 	b. nest the component in ProductList map() method callback code
 	(p) => { return <ProductRow product={p} />
 
-	

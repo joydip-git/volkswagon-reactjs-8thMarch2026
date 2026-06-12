@@ -56,3 +56,55 @@ app-dir>npm run dev [means: npx vite --port=5173]
 or
 
 app-dir>npx vite --port=4000
+
+
+
+
+code:
+------------------------
+
+import './App.css'
+
+const App = () => {
+  let count = 0
+
+  const increaseHandler = () => {
+    console.log(count);
+    count = count + 1
+    console.log(count);
+  }
+  return (
+    <div>
+      Count: &nbsp; {count}
+      <br />
+      <button type="button" onClick={increaseHandler}> Increase</button>
+    </div>
+  )
+}
+
+export default App
+
+error: 
+-------------------------
+Error: Cannot modify local variables after render completes
+
+This argument[increaseHandler] to onClick is a function which may reassign or mutate `count` after render, which can cause inconsistent behavior on subsequent renders. Consider using "state" instead.
+
+
+conclusion: any data after render should not be modified
+if you want React to track the changes in the data, DO NOT declare the data as local variable of the function
+create a state for the component and save value
+when the state is updated, the component will be recalled by React producing new version of the component's VDOM which updates the UI
+
+
+function useState<T>(initialState:T){
+	let state = initialState //0
+	
+	function setState(newState:T=1){
+		state = newState//1
+	}
+
+	return [state, setState]
+}
+
+	
