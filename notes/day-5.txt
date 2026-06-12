@@ -1,0 +1,21 @@
+TypeScript:
+---------------
+superset of JavaScript
+development mode language
+static type checking
+strict typing
+
+
+TS -> convert -> JS [transpiler -> TSC]
+
+Note: extra features of TS (such as, interface, type, generic, extra data types [any, unknown etc.]) ae NOT converted to JS during transpilation
+
+install typescript:
+-----------------------------
+>npm i typescript -D
+
+create tsconfig.json file:
+-----------------------------
+>.\node_modules\.bin\tsc --init
+
+"use strict"

@@ -4,12 +4,13 @@ import './App.css'
 
 function App() {
   let count = 20
+  let data = 'Joydip'
   // const counterComp = Counter({ countValue: count })
   return (
     <div>
       <Title />
       <br />
-      <Counter countValue={count} />
+      <Counter countValue={data} />
       <br />
       <Counter countValue={count} />
       {
