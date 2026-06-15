@@ -1,10 +1,11 @@
 import type { Product } from "../../../models/product"
 
 type ProductRowPropType = {
-    product: Product
+    product: Product,
+    deleteProduct: (productId: number) => void
 }
 const ProductRow = (props: Readonly<ProductRowPropType>) => {
-    const { product: p } = props
+    const { product: p, deleteProduct: deleteHandler } = props
     return (
         <tr>
             <td>
@@ -14,7 +15,14 @@ const ProductRow = (props: Readonly<ProductRowPropType>) => {
             <td>{p.price}</td>
             <td>{p.starRating}</td>
             <td>
-                <button type="button">Delete</button>
+                <button type="button"
+                    onClick={
+                        () => {
+                            deleteHandler(p.productId)
+                        }
+                    }>
+                    Delete
+                </button>
             </td>
         </tr>
     )
