@@ -1,0 +1,66 @@
+state in React JS:
+-------------------------
+React updates the UI (Actual DOM) when a data in the component changes.
+React must be aware of change in value of the property in that component, otherwise it will never update the UI.
+Hence React offers you state. 
+You must create a state for your data with some initial value (state will be maintained outside the component) in the runtime, which React will track. any change made into that state will notify React to re-render the component's VDOM, compare that with previous VDOM and accordingly update the UI
+
+hook used for the state: useState
+	you must supply an initial state (value)
+	the method returns an array with the copy of the value and reference to a method used to update the state
+
+const arr = useState(0)
+const [value, setValue] = arr
+
+Note:
+	a state is a intrinsic property of a component. a component's state is NEVER shared with another component.
+	NEVER EVER mutate the state directly (like value++)
+	ALWAYS UPDATE THE STATE USING the refernce of the method passed to the component as the 2nd index value of the array returned by the useState() method (hook)
+	the state updation is ASYNCHRONOUS, means, when the state is updated, the React app (Which is single threaded) thread is NOT BLOCKED
+	when the asynchronous state update is over, React re-renders the VDOM of the component and passes the copy of the updated data, which is updated in the actual DOM
+	useState can be called multiple times in a component, means, you can create multiple state for a component. change in any state will re-render the component and thus will update the UI.
+
+function App(){
+
+	const arr = useState(0)
+	const [value, setValue] = arr
+
+	const valueHandler = () => {
+		setValue(value+1)
+	}
+
+	return (
+		<div>
+			Value: &nbsp; {value}
+			<br>
+			<button onClick={valueHandler} type="button">Increase</button>
+		</div>
+	)
+}
+
+
+when the very first time the React app runs, the VDOM (a tree of React Elements) is created by calling the component functions in React
+
+this VDOM is responsible to create actual HTML DOM and the same is appended in the existing HTML DOM for the HTML file (single page of the SPA)
+
+This phase is known as "mounting"
+
+rendering => creating a VDOM by calling React component
+
+const numbers=[10,20,30,40,50]
+
+const first = numbers[0]
+const third = numbers[2]
+
+//array destructuring
+const [x,,y] = numbers
+
+//object destructuring
+const anilObj  ={
+	id:1,
+	name:'anil',
+}
+
+const {id:id,name:name} = anilObj
+
+
