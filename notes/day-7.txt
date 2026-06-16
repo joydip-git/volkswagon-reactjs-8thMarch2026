@@ -75,9 +75,59 @@ API response model:
 
 {
 	"message": "success/failure message",
-	"data": Product|Product[]|string(token)|User|null
+	"data": T -> [Product|Product[]|string(token)|User]|null
 }
 
 models: Product, User
+
+//model
+export interface ApiResponse<T>{
+	message:string;
+	data:T|null
+}
+
+//service
+getProducts():Promise<ApiResponse<Product[]>>{
+	const axiosResponse:AxiosResponse<ApiResponse<Product[]>> = await axiosInstance.get<ApiResponse<Product[]>>('')
+	const apiResponse:ApiResponse<Product[]> = axiosResponse.data
+	return apiResponse
+}
+
+//component
+const apiResponse:ApiResponse<Product[]> = await getProducts()
+if(apiResponse.data !== null){
+	setProducts(apiResponse.data)
+	setError('')
+	setOver(true)
+}else{
+	setProducts([])
+	setError(apiResponse.message)
+	setOver(true)
+}
+
+
+passing data between components:
+	a. between a parent and a nested component:
+		parent:
+		const [data,setData]  = useState(0)
+		const handlerFn = (newdata)=>setData(newdata) 
+
+		<Child prop1={data} handler={handlerFn} />
+
+		in child:
+		<element> {props.data} </element>
+		<element onX={()=> props.handler(somedata)}></element>
+
+	b. between sibling components shallowly nested in a parent component
+	c. any a parent and a deeply nested component [in the same component tree]
+	d. between any two components NOT in the same component tree
+
+
+app state management:
+----------------------------
+RxJS
+Redux etc.
+
+
 
 
