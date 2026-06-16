@@ -25,6 +25,16 @@ export async function getTodos(): Promise<Todo[]> {
     }
 }
 
+export async function getTodo(id: number):Promise<Todo> {
+    const response: AxiosResponse<Todo> = await axiosInstance.get<Todo>(`${id}`)
+
+    if (response.status === 200) {
+        return response.data
+    } else {
+        throw new Error(`Error: Something went wrong. Status Text is:${response.statusText}`)
+    }
+}
+
 export const addTodo = async (todo: Todo) => {
     const response: AxiosResponse<Todo> = await axiosInstance.post<Todo>('', todo)
     return response.data

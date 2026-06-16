@@ -1,0 +1,83 @@
+you have to write "side effect causing code" in the component with explicit event invocation of html elements, such as button click etc.
+
+side effect causing code: such code which causes component to re-render
+
+example:
+1. a component might receive new data from its parent component via props and has to fetch data from backend every time in its lifecycle
+2. a component might want to fetch data one time in its lifecycle
+
+effect hook:
+----------------------
+You can register a side effect causing code with React, so that the code is executed after the initial rendering of the component
+
+x
+useEffect(
+	()=>{
+		//side effect causing code
+		//this code will be executed after the initial rendering and you can also conditionally execute this code depending on the change of the value in properties mentioned in the dependency list
+	},
+	[x] -> dependency list
+)
+
+Note: useEffect() method does not return anything (void)
+
+useEffect() method tells React to register the callbacks and those callbacks are executed....
+
+1. mounting:
+all callbacks are executed after the VDOM has been created as well as the VDOM has produced the HTML DOM part for this application and the same has been appended in the existing DOM of index.html file
+
+Note: the useEffect() with a blank dependency array will NOT be executed again after this one time execution during mounting phase in the lifecycle of the component (until and unless the component has been "unmounted" and again "mounted")
+
+2. update:
+the useEffect() without any dependency array will be executed again but after the component has returned the React eelement (re-rendered)
+
+the useEffect() with any dependency in the dependency array will be executed again, if the that dependency value changes, but after the component has returned the React eelement (re-rendered)
+
+the useEffect() with a blank dependency array will NOT be executed again in the lifecycle of the component (until and unless the component has been "unmounted" and again "mounted")
+
+useEffect(
+	()=>{
+	}
+)
+
+useEffect(
+	()=>{},
+	[d1,d2,...]
+)
+
+
+useEffect(
+	()=>{},
+	[]
+)
+
+
+use product-service-backend app:
+----------------------------------
+1. clone the repo
+2. make a copy of the "product-service-backend" app and place it somewhere else
+3. open the copied "product-service-backend" folder in VS Code
+4. open integrated terminal
+5. type "npm i" to install the packages
+6. add a file at the root of the "product-service-backend" folder: .env
+7. from env.txt file present in the "backend-server" folder in cloned repo, copy everything and paste it in the .env file
+8. open "app-routes.js" file in the "src\routes" and comment line no: 16 to 20 and uncomment line no: 22 to 26
+9. open the integrated terminal and now type the following command to run the RESTful API server
+> npm start
+10. RESTful API server runs and hosts two sets of APIs: products and auth
+http://127.0.0.1:3003/products
+http://127.0.0.1:3003/auth
+
+Note: read the "backend-details.txt" file in the "backend-server" folder to know about the APIs
+
+
+API response model:
+
+{
+	"message": "success/failure message",
+	"data": Product|Product[]|string(token)|User|null
+}
+
+models: Product, User
+
+
