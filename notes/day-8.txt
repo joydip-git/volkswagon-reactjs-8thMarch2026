@@ -4,41 +4,8 @@ Facebook -> React JS
 Redux -> larger app
 useReducer -> smaller app
 
-		single source of data
+single source of data, unidirectional and predictable data flow from store to components
 
-
-const [count,setCount] = useState(0)
-
-const countIncreaseHandler = ()=>{
-	setCount(count+1)
-}
-const countDecreaseHandler = ()=>{
-	setCount(
-		(prevCount)=>prevCount-1
-	)
-}
-
-const countHandler = (choice:number)=>{
-	switch(choice){
-		case 1:
-			setCount(count+1)	
-		break;
-
-		case 2:
-			setCount((prevCount)=>prevCount-1)
-	
-		break;
-
-		default:
-			
-		break;
-	}
-}
-
-
-useState([]) -> setProducts(array)
-useState('')
-useState(false)
 
 Redux terminologies:
 ----------------------------
@@ -52,5 +19,37 @@ Redux terminologies:
 7. Action types	=> type of action (object with types or individual const variable)
 8. Action Creator => a function to create a specific type of action
 
-a react app is connected to redux store, the app will receive the "reducer (state) map" and reference to "dispatch" method
+
+connect react app with redux store:
+---------------------------------------------
+install a package "react-redux"
+use the <Provider> component and wrap the entire VDOM tree in it
+supply the redux store reference to "store" attribute of the <Provider> component
+
+when a react app is connected to redux store, the app will receive the "reducer (state) map" and reference to "dispatch" method
 a component has to subscribe a reducer (state) from that reducer map
+
+useSelector => hook (untyped)
+
+type StateType = ReturnType<typeof <store-var>.getState>
+const nameState = useSelector( (stateMap:StateType)=>stateMap.nameState)
+
+create a custom typed hook from built-in useSelector
+const typedUseSelector = useSelector.withTypes<StateType>()
+
+type StateMapType = CountStateType & NameStateType => { { count:number}, {name:string} }
+
+
+useDisaptch => hook (untyped)
+create a custom typed hook from built-in useDispatch
+
+type DispatchType = typeof <store-var>.dispatch
+const typedUseDispatch = useDispatch.withTypes<DispatchType>()
+
+
+
+const productsInitialState={
+	products:[],
+	error:'',
+	isRequestOver:false
+}
