@@ -1,0 +1,56 @@
+Facebook -> React JS
+	 -> Flux
+
+Redux -> larger app
+useReducer -> smaller app
+
+		single source of data
+
+
+const [count,setCount] = useState(0)
+
+const countIncreaseHandler = ()=>{
+	setCount(count+1)
+}
+const countDecreaseHandler = ()=>{
+	setCount(
+		(prevCount)=>prevCount-1
+	)
+}
+
+const countHandler = (choice:number)=>{
+	switch(choice){
+		case 1:
+			setCount(count+1)	
+		break;
+
+		case 2:
+			setCount((prevCount)=>prevCount-1)
+	
+		break;
+
+		default:
+			
+		break;
+	}
+}
+
+
+useState([]) -> setProducts(array)
+useState('')
+useState(false)
+
+Redux terminologies:
+----------------------------
+1. state 	=> an object
+2. Reducer 	=> a function with a logic to update the state, which returns the new state to the store after update
+3. Store	=> collection of reducers and corresponding states
+4. Reducer Map  => an object with properties where each property refers to a reducer (thus referring a state)
+5. Action 	=> an Object with at least one property (mandatory) 'type' with information about what kind/type of action to perform on the state and optionally another property (ies) with data which might be required to update the state
+6. Dispatch	=> a function. a component dispatches the action against the store using a "dispatch()" method, reference of which is shared by the redux store when the react app is connected to redux store
+
+7. Action types	=> type of action (object with types or individual const variable)
+8. Action Creator => a function to create a specific type of action
+
+a react app is connected to redux store, the app will receive the "reducer (state) map" and reference to "dispatch" method
+a component has to subscribe a reducer (state) from that reducer map

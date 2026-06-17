@@ -23,7 +23,7 @@ const ProductList = () => {
                 setIsRequestOver(true)
             } else {
                 setProducts([])
-                setError(apiResponse.message)
+                setError('something went wrong: ' + apiResponse.message)
                 setIsRequestOver(true)
             }
         } catch (error) {
@@ -50,11 +50,13 @@ const ProductList = () => {
                     }
                 }
             )
-            .catch((error) => {
-                setProducts(products)
-                setError('something went wrong: ' + error.message)
-                setIsRequestOver(true)
-            })
+            .catch(
+                (error) => {
+                    setProducts(products)
+                    setError('something went wrong: ' + error.message)
+                    setIsRequestOver(true)
+                }
+            )
     }
     useEffect(
         () => {
