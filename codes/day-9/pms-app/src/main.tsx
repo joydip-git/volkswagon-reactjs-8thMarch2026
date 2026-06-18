@@ -2,7 +2,11 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './components/app/App.tsx'
+import { Provider } from 'react-redux'
+import PmsStore from './redux/store.ts'
 
 createRoot(document.getElementById('root')!).render(
-      <App />  
+      <Provider store={PmsStore}>
+            <App />
+      </Provider>
 )
