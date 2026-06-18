@@ -1,0 +1,117 @@
+useSelector:
+A function that takes a selector function as callback as its first argument. 
+The selector function is responsible for selecting a part of the Redux store's state.
+
+untyped:
+useSelector( (stateMap:unknown) => stateMap.countState)
+
+1. Extract state map type and use it explicitly:
+-----------------------------------------------------------
+store.getState() -> { countState: { count:0}, nameState: {name:''}} -> ????
+
+typeof store.getState -> full type information of the function
+ReturnType<typeof store.getState> -> extracts ONLY the return data type from the complete function data type
+
+type StateMapType = ReturnType<typeof store.getState>
+
+{ nameState: {name:string}, countState:{count:number} }
+
+Name.tsx
+useSelector( (stateMap:StateMapType)=>stateMap.nameState)
+
+CountIncrement.tsx
+useSelector( (stateMap:StateMapType) => stateMap.countState)
+
+CountDecrement.tsx
+useSelector( (stateMap:StateMapType) => stateMap.countState)
+
+Note: every time you use useSelector() you have to typify the argument in the callback function
+
+2. create typed hooks:
+-------------------------
+type StateMapType = ReturnType<typeof store.getState>
+
+const useTypedSelctor = useSelector.withTypes<StateMapType>()
+
+Name.tsx
+useTypedSelctor( (stateMap)=>stateMap.nameState)
+
+CountIncrement.tsx
+useTypedSelctor( (stateMap) => stateMap.countState)
+
+CountDecrement.tsx
+useTypedSelctor( (stateMap) => stateMap.countState)
+
+Note: every time you DON'T NEED TO typify the argument in the callback function whle using the typed useSelector hook
+
+
+useDispatch:
+-------------------
+const dispatchFnRef: Dispatch<UnknownAction> = useDispatch<Dispatch<UnknownAction>>()
+Returns the dispatch function from the Redux store.
+
+dispatch({type:'increase', payload:'1'/1/false/{}/[] })
+
+function countreducer(state=initialState, action:AppActionType<number>){}
+
+dispatch({type:'increase', payload:1})
+
+function namereducer(state=initialState, action:AppActionType<string>){}
+dispatch({type:'change', payload:'joydip'})
+
+untyped:
+const dispatchFnRef: Dispatch<UnknownAction> = useDispatch<Dispatch<UnknownAction>>()
+
+1. create action type and use it explicitly
+
+typed:
+const dispatchFnRef: Dispatch<AppAcionType<number|string>> = useDispatch<Dispatch<AppAcionType<number|string>>>()
+
+Name.tsx
+const dispatchFnRef: Dispatch<AppAcionType<string>> = useDispatch<Dispatch<AppAcionType<string>>>()
+
+dispatchFnRef({type:'change', payload:'joydip'})
+
+CounterIncrement.tsx
+const dispatchFnRef: Dispatch<AppAcionType<number>> = useDispatch<Dispatch<AppAcionType<number>>>()
+
+dispatchFnRef({type:'increase', payload:1})
+
+CounterDecrement.tsx
+const dispatchFnRef: Dispatch<AppAcionType<number>> = useDispatch<Dispatch<AppAcionType<number>>>()
+
+dispatchFnRef({type:'increase', payload:1})
+
+Note: every time you call useDispatch<T>() you have to menion data type for T
+
+Create Typed useDispatch:
+-------------------------------
+
+type DispatchActionType:Dispatch<AppAcionType<number|string>> = typeof store.dispatch
+
+const useTypedDispatch = useDispatch.withTypes<DispatchActionType>()
+
+Name.tsx
+const dispatchFnRef = useTypedDispatch()
+dispatchFnRef({type:'change', payload:'joydip'})
+
+CounterIncrement.tsx
+const dispatchFnRef = useTypedDispatch()
+dispatchFnRef({type:'increase', payload:1})
+
+CounterDecrement.tsx
+const dispatchFnRef = useTypedDispatch()
+dispatchFnRef({type:'increase', payload:1})
+
+
+ReduxJS Toolkit:
+-----------------------
+install package: >npm i @reduxjs/toolkit
+
+
+
+
+
+
+
+
