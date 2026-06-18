@@ -108,6 +108,13 @@ ReduxJS Toolkit:
 -----------------------
 install package: >npm i @reduxjs/toolkit
 
+key prop:
+---------------
+key property is to which you assign an unique value
+generally used in case you are creating a list of JSX/React Elements
+React uses the key prop of a recat/jsx element during the time of VDOM comparsion using diff algorithm to determine the difference between the VDOMs of the list
+key prop should be used with the root element
+
 
 
 

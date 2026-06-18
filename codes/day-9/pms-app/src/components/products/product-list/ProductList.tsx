@@ -1,4 +1,4 @@
-import { useEffect, type JSX } from "react"
+import { useEffect, useState, type JSX } from "react"
 import ProductRow from "../product-row/ProductRow"
 import { type Product } from "../../../models/product"
 import type { AxiosResponse } from "axios"
@@ -8,6 +8,8 @@ import { useTypedDispatch, useTypedSelector } from "../../../redux/typedhooks"
 import { fetchFailureActionCreator, fetchInitiateActionCreator, fetchSuccessActionCreator } from "../../../redux/productsslice"
 
 const ProductList = () => {
+
+    const [choices, setChoices] = useState(['Name', 'Price', 'Id'])
 
     const { error, isRequestOver, products } = useTypedSelector(state => state.productsState)
     const dispatch = useTypedDispatch()
@@ -76,7 +78,7 @@ const ProductList = () => {
 
     const productRows: JSX.Element[] = products.map(
         (p) => {
-            return <ProductRow product={p} deleteProduct={deleteProductHandler} />
+            return <ProductRow product={p} deleteProduct={deleteProductHandler} key={p.productId} />
         }
     )
 
@@ -88,10 +90,29 @@ const ProductList = () => {
         return <span>No records</span>
     } else {
         return (
-            <div>
-                <h2>List of Products</h2>
+            <div className="container conatiner-fluid">
                 <br />
-                <table>
+                <h2 className="text-dark">List of Products: </h2>
+                <br />
+                <div>
+                    <label htmlFor="ddlChoices">Sort By: &nbsp;</label>
+                    <select id="ddlChoices" className="form-select" defaultValue={'--select--'}>
+                        <option disabled>
+                            --select--
+                        </option>
+                        {
+                            choices.map(
+                                (choice) => {
+                                    return <option key={choice}>
+                                        {choice}
+                                    </option>
+                                }
+                            )
+                        }
+                    </select>
+                </div>
+                <br />
+                <table className="table table-hover">
                     <thead>
                         <tr>
                             <th>Image</th>
@@ -101,7 +122,7 @@ const ProductList = () => {
                             <th>Delete</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="table-dark">
                         {
                             productRows
                         }
