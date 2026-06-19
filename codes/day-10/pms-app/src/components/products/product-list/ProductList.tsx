@@ -44,28 +44,30 @@ const ProductList = () => {
     }
 
     const deleteProductHandler = (id: number) => {
-        const initiateAction = fetchInitiateActionCreator()
-        dispatch(initiateAction)
+        if (window.confirm('delete?')) {
+            const initiateAction = fetchInitiateActionCreator()
+            dispatch(initiateAction)
 
-        deleteProduct(id)
-            .then(
-                (axiosResponse) => {
-                    const apiResponse = axiosResponse.data
-                    if (apiResponse.data !== null) {
-                        dispatch(fetchSuccessActionCreator(
-                            apiResponse.data))
-                    } else {
-                        dispatch(fetchFailureActionCreator(
-                            apiResponse.message))
+            deleteProduct(id)
+                .then(
+                    (axiosResponse) => {
+                        const apiResponse = axiosResponse.data
+                        if (apiResponse.data !== null) {
+                            dispatch(fetchSuccessActionCreator(
+                                apiResponse.data))
+                        } else {
+                            dispatch(fetchFailureActionCreator(
+                                apiResponse.message))
+                        }
                     }
-                }
-            )
-            .catch(
-                (error) => {
-                    dispatch(fetchFailureActionCreator(
-                        error.message))
-                }
-            )
+                )
+                .catch(
+                    (error) => {
+                        dispatch(fetchFailureActionCreator(
+                            error.message))
+                    }
+                )
+        }
     }
     useEffect(
         () => {

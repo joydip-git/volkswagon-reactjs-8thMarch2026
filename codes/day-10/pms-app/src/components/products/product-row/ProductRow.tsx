@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom"
 import type { Product } from "../../../models/product"
 import './ProductRow.css'
+import { useTypedDispatch, useTypedSelector } from "../../../redux/typedhooks"
+import { fetchProductSuccessActionCreator } from "../../../redux/productslice"
 
 type ProductRowPropType = {
     product: Product,
@@ -8,10 +10,16 @@ type ProductRowPropType = {
 }
 const ProductRow = (props: Readonly<ProductRowPropType>) => {
     const { product: p, deleteProduct: deleteHandler } = props
+
+    const dispatch = useTypedDispatch()
+    
+    const saveProduct = () => {
+        dispatch(fetchProductSuccessActionCreator(p))
+    }
     return (
         <tr>
             <td>
-                <Link to={`/products/view/${p.productId}`}>
+                <Link to={`/products/view/${p.productId}`} onClick={saveProduct}>
                     <img src={p.imageUrl} className="img img-responsive img-style" alt="NA" />
                 </Link>
             </td>
