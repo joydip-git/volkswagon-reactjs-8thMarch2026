@@ -1,0 +1,48 @@
+routing
+form handling
+
+
+client side routing: navigating to one or the other component in the client browser (no request goes to the server over and again from client browser)
+
+dynamic loading:
+http://localhost:4000/products 		-> PL [list of products]
+http://localhost:4000/products/view/:x  -> PD [single product]
+http://localhost:4000/products/add 	-> AP
+http://localhost:4000/products/edit/1   -> EP
+
+{x:'1'} -> PD
+
+to avail routing: react-router-dom
+>npm i react-router-dom
+
+
+route -> path and component
+<Route />
+
+create an array of routes
+<Routes/>
+
+<a href='/products'>
+
+Link -> A progressively enhanced <a href> wrapper to enable navigation with client-side routing. this suppresses the default behavior of anchor.
+
+
+products/categories/:catname/items/:itemname/view/:id -> Some
+
+{catname:'mobile', itemname:'samsung', id:'1234'} -> useParams() -> Some
+
+const params = useParams()
+params['catname'] -> 'mobile'
+params['itemname'] -> 'Samsung'
+params['id'] -> '1234' -> Number('1234') -> 1234
+
+
+products/categories/:catname/items/:itemname/edit/:id -> Some
+
+useRoutes() hook:
+-------------------
+Hook version of <Routes/> that uses objects instead of <Route/> components. 
+These objects have the same properties as the component props. 
+The return value of useRoutes is either a valid React element you can use to render the route tree, or null if nothing matched.
+
+

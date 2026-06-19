@@ -1,0 +1,20 @@
+/* CSS class */
+.img-style {
+    margin: 2px;
+    width: 80px
+}
+
+.delete-btn-common-style {
+    height: 50px;
+    width: 80px;
+    background-color: red;
+    padding: 2px;
+    color: whitesmoke;
+}
+
+.delete-btn-border-style {
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: red;
+}
