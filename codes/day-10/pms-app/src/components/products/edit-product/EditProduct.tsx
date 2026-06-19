@@ -38,7 +38,7 @@ const EditProduct = () => {
     return <div>No record</div>
   else
     return (
-      <div>
+      <form>
         <span>Details of: &nbsp;{product.productName}</span>
         <br />
         <table>
@@ -155,7 +155,7 @@ const EditProduct = () => {
         <button type="button" className="btn btn-primary" onClick={updateProductData}>
           Edit
         </button>
-      </div>
+      </form>
     )
 }
 

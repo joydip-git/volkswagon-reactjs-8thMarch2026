@@ -35,7 +35,7 @@ const AddProduct = () => {
     }
   }
   return (
-    <div>
+    <form>
       <div>
         <label htmlFor="txtId">Id:&nbsp;</label>
         <input type="text" id='txtId' value={product.productId}
@@ -138,7 +138,7 @@ const AddProduct = () => {
       <div>
         <button type="button" onClick={addProductHandler}>Add</button>
       </div>
-    </div>
+    </form>
   )
 }
 
